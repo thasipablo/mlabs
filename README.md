@@ -1,15 +1,18 @@
 # M-LABS
 
 ## Get the repo
-
-- git clone 'repo link' or fork it [preferable]
-
-- cd 'to the folder'
-
+```
+git clone git@github.com:thasipablo/m-labs.git
+```
+```
+cd m-labs
+```
 ## Install dependencies
-
-- yarn
+```
+yarn
+```
 
 ## Launch the dev server
-
-- yarn dev
+```
+yarn dev
+```
