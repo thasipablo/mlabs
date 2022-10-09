@@ -1,3 +1,8 @@
+$primary-color: #3abe8e;
+$secondary-color: #f19561;
+$text-color: #1a1a1a;
+$gray: #747474;
+
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -21,11 +26,11 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: inherit;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: $primary-color;
 }
 
 body {
@@ -34,6 +39,7 @@ body {
   /* place-items: center; */
   min-width: 320px;
   min-height: 100vh;
+  color: $text-color;
 }
 
 h1 {
@@ -60,6 +66,21 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.section-title {
+  text-transform: uppercase;
+  font-weight: 700;
+  color: $primary-color;
+}
+
+.with-separator {
+  border-bottom: #f6f6f6 2px solid;
+}
+
+.meta-data {
+  color: #747474;
+  font-size: 0.8rem;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -72,3 +93,8 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+@import "app";
+@import "sidebar";
+@import "dashboard";
+@import "patients";

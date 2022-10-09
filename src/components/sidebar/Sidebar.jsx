@@ -1,6 +1,5 @@
 import React from 'react'
 import SidebarMenus from './SidebarMenus'
-import './sidebar.scss'
 
 const Sidebar = () => {
   return (
