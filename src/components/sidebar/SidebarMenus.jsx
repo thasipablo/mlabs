@@ -4,11 +4,11 @@ import SidebarMenuItem from "./SidebarMenuItem";
 
 const SidebarMenus = () => {
   
-  return <Fragment>
+  return <div>
     {SidebarMenusData.map((menu) => (
-      <SidebarMenuItem text={menu.text} key={menu.text} link={menu.link} />
+      <SidebarMenuItem text={menu.text} key={menu.text} link={menu.link} icon={menu.icon} />
     ))}
-  </Fragment>;
+  </div>;
 };
 
 export default SidebarMenus;

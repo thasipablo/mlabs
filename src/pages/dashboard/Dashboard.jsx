@@ -1,11 +1,12 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import LeftSidebar from "../../components/left_sidebar/LeftSidebar";
+import Sidebar from "../../components/sidebar/Sidebar";
+import './dashboard.scss'
 
 const Dashboard = () => {
   return (
     <div className="dashboard-wrapper">
-      <LeftSidebar />
+      <Sidebar />
       <div className="dashboard-content-wrapper">
         {/* nested page */}
         <Outlet />
