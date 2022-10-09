@@ -1,4 +1,4 @@
-import { RoutNames } from "./RouteNames";
+import { RouteNames } from "./RouteNames";
 import home from '../icons/home.svg'
 import notes from '../icons/notes.svg'
 import patients from '../icons/patients.svg'
@@ -9,26 +9,26 @@ export const SidebarMenusData = [
   {
     text: "Accueil",
     icon: `${home}`,
-    link: RoutNames.ACCUEIL,
+    link: RouteNames.ACCUEIL,
   },
   {
     text: "Patients",
     icon: "icon",
-    link: RoutNames.PATIENT,
+    link: RouteNames.PATIENT,
   },
   {
     text: "Examens",
     icon: "",
-    link: RoutNames.EXAMENS,
+    link: RouteNames.EXAMENS,
   },
   {
     text: "Personnel",
     icon: "icon",
-    link: RoutNames.PERSONNEL,
+    link: RouteNames.PERSONNEL,
   },
   {
     text: "Rapport",
     icon: "icon",
-    link: RoutNames.RAPPORT,
+    link: RouteNames.RAPPORT,
   },
 ];

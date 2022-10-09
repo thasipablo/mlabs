@@ -1,0 +1,72 @@
+.patients-container {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 18rem auto;
+}
+
+.patients-list {
+  min-height: calc(100vh - 2rem);
+  background-color: #fff;
+  border-radius: 6px;
+
+  .header,
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header {
+    padding: 1rem;
+  }
+
+  button {
+    padding: 0;
+    color: #fff;
+    display: block;
+    outline: none;
+    border: none;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+    background-color: $secondary-color;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      box-shadow: $secondary-color 0 4px 15px;
+    }
+  }
+
+  .patient-item {
+    display: flex;
+    gap: 1rem;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    transition: all .3s ease-in-out;
+
+    &:hover, &.active {
+      color: $primary-color;
+      border-color: rgb($primary-color, .3);
+      background-color: rgb($primary-color, .1);
+      
+      .meta-data, .name {
+        color: $primary-color;
+      }
+      .avatar {
+        background-color: rgb($primary-color, .7);
+      }
+    }
+
+    .avatar {
+      height: 3rem;
+      width: 3rem;
+      border-radius: 50%;
+      background: $gray;
+    }
+
+    .name {
+      font-size: 1rem;
+      color: $text-color;
+    }
+  }
+}

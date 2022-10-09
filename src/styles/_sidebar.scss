@@ -8,7 +8,7 @@
 
 .sidebar-menu-item{
   width: 6rem;
-  height: 4rem;
+  height: 6rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,8 +17,8 @@
   
   &:hover,
   &.active {
-    color: #3ABE8E;
+    color: $primary-color;
     background-color: #3bbf8f1a;
-    border-right: #3ABE8E solid 4px;
+    border-right: $primary-color solid 4px;
   }
 }
