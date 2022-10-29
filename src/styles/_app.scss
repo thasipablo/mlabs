@@ -1,6 +1,14 @@
-
 #root {
   margin: 0 auto;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  svg {
+    width: 1.2rem;
+  }
 }
 
 .dashboard-wrapper {
@@ -19,4 +27,3 @@
 .dashboard-content-wrapper {
   min-height: 100vh;
 }
-

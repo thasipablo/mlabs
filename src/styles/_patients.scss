@@ -23,11 +23,11 @@
   button {
     padding: 0;
     color: #fff;
-    display: block;
+    display: flex;
     outline: none;
     border: none;
-    height: 2.5rem;
-    width: 2.5rem;
+    height: 2rem;
+    width: 2rem;
     border-radius: 50%;
     background-color: $secondary-color;
     transition: all 0.3s ease-in-out;
@@ -42,18 +42,28 @@
     gap: 1rem;
     padding: 0.5rem;
     padding-left: 1rem;
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 
-    &:hover, &.active {
+    svg {
+      color: rgb($gray, 0.4);
+    }
+
+    &:hover,
+    &.active {
       color: $primary-color;
-      border-color: rgb($primary-color, .3);
-      background-color: rgb($primary-color, .1);
+      border-color: rgb($primary-color, 0.3);
+      background-color: rgb($primary-color, 0.1);
+
+      svg {
+        color: rgb(white, 0.7);
+      }
       
-      .meta-data, .name {
+      .meta-data,
+      .name {
         color: $primary-color;
       }
       .avatar {
-        background-color: rgb($primary-color, .7);
+        background-color: rgb($primary-color, 0.7);
       }
     }
 
@@ -61,7 +71,7 @@
       height: 3rem;
       width: 3rem;
       border-radius: 50%;
-      background: $gray;
+      background: rgb($gray, 0.2);
     }
 
     .name {

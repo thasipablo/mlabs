@@ -6,7 +6,7 @@
   justify-content: space-between;
 }
 
-.sidebar-menu-item{
+.sidebar-menu-item {
   width: 6rem;
   height: 6rem;
   display: flex;
@@ -14,11 +14,19 @@
   justify-content: center;
   align-items: center;
   transition: all 0.3s ease-in-out;
-  
+  border-bottom: 1px solid rgba($color: $gray, $alpha: 0.02);
+
+  .content {
+    display: flex;
+    gap: .5rem;
+    flex-direction: column;
+  }
+
   &:hover,
   &.active {
     color: $primary-color;
     background-color: #3bbf8f1a;
     border-right: $primary-color solid 4px;
+    border-bottom: 1px solid rgba($color: #3bbf8f1a, $alpha: 0.02);
   }
 }
