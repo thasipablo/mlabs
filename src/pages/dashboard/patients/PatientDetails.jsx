@@ -28,11 +28,30 @@ const PatientDetails = ({ patient }) => {
           </div>
         </div>
       </div>
+
+      {/* Analysis Reports */}
       <div className="section">
         <div className="section-title">bulletins d'analyse</div>
-        <div className="section-content patient-data">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+        {patient.analysisReports?.length ? patient.analysisReports.map((analysisReport) => (
+          <div className="section-content analysis-reports" key={analysisReport.id}>
+            <h3 className="">{analysisReport.date}</h3> 
+            
+            {/* exams list */}
+            {analysisReport.exams?.length ? analysisReport.exams.map((exam) => (
+              <div className="exam" key={exam.id}>
+                {exam.name} | {exam.result} | {exam.observations}
+              </div>
+            )) :
+            <div className="section-content">
+              <h3 className="no-data">Pas d'examen  jusque là !</h3>
+            </div>
+            }
+          </div>
+        )):
+        <div className="section-content">
+          <h3 className="no-data">Pas de bulletins d'analyse jusque là !</h3>
         </div>
+        }
       </div>
     </div>
   );

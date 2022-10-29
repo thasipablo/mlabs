@@ -13,6 +13,34 @@ const patients = [
     age: 43,
     weight: 67.7,
     clinician : "Claudia",
+    analysisReports: [
+      {
+        id: 1,
+        patient: "Patient 1",
+        date: "Thursday 2022-01-01",
+        exams: [
+          {
+            id: 1,
+            name: "Pigment bilaire",
+            result: "Result 1",
+            observations: "Observation 1",
+          }
+        ]
+      },
+      {
+        id: 2,
+        patient: "Patient 1",
+        date: "Friday 2022-01-02",
+        exams: [
+          {
+            id: 1,
+            name: "Pigment bilaire",
+            result: "Result 1",
+            observations: "Observation 1",
+          }
+        ]
+      }
+    ]
   },
   {
     id: 2,
@@ -23,6 +51,14 @@ const patients = [
     age: 21,
     weight: 55.7,
     clinician : "Claudia Warren",
+    analysisReports: [
+      { 
+        id: 1,
+        patient: "Patient 2",
+        date: "Thursday 2022-01-01",
+        exams: []
+      }
+    ]
   },
   {
     id: 3,
