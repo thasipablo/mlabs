@@ -1,5 +1,5 @@
 .sidebar {
-  background-color: #fff;
+  background-color: $white;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -29,4 +29,9 @@
     border-right: $primary-color solid 4px;
     border-bottom: 1px solid rgba($color: #3bbf8f1a, $alpha: 0.02);
   }
+}
+
+.quit-btn {
+  display: flex;
+  align-items: center;
 }

@@ -2,11 +2,12 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { RouteNames } from "../../../data/RouteNames";
 
-const PatientItem = ({patientId}) => {
+const PatientItem = ({patient, onShowPatientDetails}) => {
   return (
     <NavLink
-      to={`${RouteNames.PATIENT}/${patientId}`}
+      to={`${RouteNames.PATIENT}/${patient.id}`}
       className="patient-item with-separator"
+      onClick={() => onShowPatientDetails(patient.id)}
     >
       <div className="avatar icon">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -14,9 +15,9 @@ const PatientItem = ({patientId}) => {
         </svg>
       </div>
       <div className="meta-data">
-        <div className="name">Patient Name</div>
+        <div className="name">{patient.name}</div>
         <div className="address">
-          Address , +243 000 000 000
+          {patient.address} , {patient.phone}
         </div>
       </div>
     </NavLink>

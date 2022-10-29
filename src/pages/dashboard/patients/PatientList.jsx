@@ -1,14 +1,16 @@
 import React from "react";
 import PatientItem from "./PatientItem";
 
-const PatientList = () => {
+const PatientList = ({ patients, onShowPatientDetails }) => {
   return (
     <div className="">
-      <PatientItem patientId={1} />
-      <PatientItem patientId={2}/>
-      <PatientItem patientId={3}/>
-      <PatientItem patientId={4}/>
-      <PatientItem patientId={5}/>
+      {patients.map((patient) => (
+        <PatientItem
+          patient={patient}
+          onShowPatientDetails={onShowPatientDetails}
+          key={patient.id}
+        />
+      ))}
     </div>
   );
 };

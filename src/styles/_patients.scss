@@ -1,12 +1,13 @@
 .patients-container {
   padding: 1rem;
+  padding-right: 0;
   display: grid;
   grid-template-columns: 18rem auto;
 }
 
 .patients-list {
   min-height: calc(100vh - 2rem);
-  background-color: #fff;
+  background-color: $white;
   border-radius: 6px;
 
   .header,
@@ -22,7 +23,7 @@
 
   button {
     padding: 0;
-    color: #fff;
+    color: $white;
     display: flex;
     outline: none;
     border: none;
@@ -55,7 +56,7 @@
       background-color: rgb($primary-color, 0.1);
 
       svg {
-        color: rgb(white, 0.7);
+        color: rgb($white, 0.7);
       }
       
       .meta-data,
@@ -78,5 +79,43 @@
       font-size: 1rem;
       color: $text-color;
     }
+  }
+}
+
+.patient-details {
+  padding: 0 1rem 1rem 2rem;
+
+  .patient-identity {
+    display: flex;
+    gap: 1rem;
+    padding: 2rem;
+
+    .name {
+      margin-top: 0;
+    }
+
+    .data-plus {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .avatar {
+      height: 4rem;
+      min-width: 4rem;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      background-color: rgb($primary-color, 0.7);
+
+      svg {
+        width: 50%;
+        color: $white;
+      }
+    }
+  }
+
+  .section-title {
+    padding-bottom: 1rem;
   }
 }

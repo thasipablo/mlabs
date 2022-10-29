@@ -1,8 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
+import PatientDetails from "./PatientDetails";
 import PatientList from "./PatientList";
 
+const patients = [
+  {
+    id: 1,
+    name: "Bedriften",
+    phone: "000 000 001",
+    address: "Vulumbi",
+    gender: "Masculin",
+    age: 43,
+    weight: 67.7,
+    clinician : "Claudia",
+  },
+  {
+    id: 2,
+    name: "Lorenzo",
+    phone: "000 000 002",
+    address: "Vutetse",
+    gender: "Masculin",
+    age: 21,
+    weight: 55.7,
+    clinician : "Claudia Warren",
+  },
+  {
+    id: 3,
+    name: "Margarita",
+    phone: "000 000 003",
+    address: "Vungili",
+    gender: "Féminin",
+    age: 30,
+    weight: 70,
+    clinician : "Monitar Gad",
+  },
+];
+
 const Patients = () => {
+  const [patient, setPatient] = useState(patients[0]);
+
+  const onShowPatientDetails = (id) => {
+    patients.map((patient) => {
+      if (patient.id === id) {
+        setPatient(patient)
+      }
+    });
+  };
+
   return (
     <div className="patients-container">
       <div className="patients-list">
@@ -28,11 +72,17 @@ const Patients = () => {
             </button>
           </div>
         </div>
-        <PatientList />
+
+        {/* Patients list */}
+        <PatientList
+          patients={patients}
+          onShowPatientDetails={onShowPatientDetails}
+        />
       </div>
-      <div className="patient-details">
-        <Outlet />
-      </div>
+
+      {/* Patient details */}
+      <PatientDetails patient={patient} />
+      {/* <Outlet /> */}
     </div>
   );
 };
