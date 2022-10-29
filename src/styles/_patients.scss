@@ -1,0 +1,125 @@
+.patients-container {
+  padding: 1rem;
+  padding-right: 0;
+  display: grid;
+  grid-template-columns: 18rem auto;
+}
+
+.patients-list {
+  min-height: calc(100vh - 2rem);
+  background-color: $white;
+  border-radius: 6px;
+
+  .header,
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header {
+    padding: 1rem;
+  }
+
+  button {
+    padding: 0;
+    color: $white;
+    display: flex;
+    outline: none;
+    border: none;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    background-color: $secondary-color;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      box-shadow: $secondary-color 0 4px 15px;
+    }
+  }
+
+  .patient-item {
+    display: flex;
+    gap: 1rem;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    transition: all 0.3s ease-in-out;
+
+    svg {
+      color: rgb($gray, 0.4);
+    }
+
+    &:hover,
+    &.active {
+      color: $primary-color;
+      border-color: rgb($primary-color, 0.3);
+      background-color: rgb($primary-color, 0.1);
+
+      svg {
+        color: rgb($white, 0.7);
+      }
+      
+      .meta-data,
+      .name {
+        color: $primary-color;
+      }
+      .avatar {
+        background-color: rgb($primary-color, 0.7);
+      }
+    }
+
+    .avatar {
+      height: 3rem;
+      width: 3rem;
+      border-radius: 50%;
+      background: rgb($gray, 0.2);
+    }
+
+    .name {
+      font-size: 1rem;
+      color: $text-color;
+    }
+  }
+}
+
+.patient-details {
+  padding: 0 1rem 1rem 2rem;
+
+  .patient-identity {
+    display: flex;
+    gap: 1rem;
+    padding: 2rem;
+
+    .name {
+      margin-top: 0;
+    }
+
+    .data-plus {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .avatar {
+      height: 4rem;
+      min-width: 4rem;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      background-color: rgb($primary-color, 0.7);
+
+      svg {
+        width: 50%;
+        color: $white-dark;
+      }
+    }
+  }
+
+  .section-title {
+    padding-bottom: 1rem;
+  }
+
+  .analysis-reports {
+    margin-bottom: 1rem;
+  }
+}

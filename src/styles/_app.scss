@@ -2,6 +2,15 @@
   margin: 0 auto;
 }
 
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  svg {
+    width: 1.2rem;
+  }
+}
+
 .dashboard-wrapper {
   display: grid;
   grid-template-columns: 6rem auto;
@@ -17,4 +26,10 @@
 
 .dashboard-content-wrapper {
   min-height: 100vh;
+}
+
+.section-content {
+  border-radius: 0.5rem;
+  padding: 1rem;
+  background-color: $white;
 }

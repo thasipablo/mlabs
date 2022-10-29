@@ -1,9 +1,10 @@
 import { createBrowserRouter, Routes } from "react-router-dom";
 import App from "./App";
-import { RoutNames } from "./data/RouteNames";
+import { RouteNames } from "./data/RouteNames";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Examens from "./pages/dashboard/examens/Examens";
 import Home from "./pages/dashboard/home/Home";
+import PatientDetails from "./pages/dashboard/patients/PatientDetails";
 import Patients from "./pages/dashboard/patients/Patients";
 import Personnel from "./pages/dashboard/personnel/Personnel";
 import Rapport from "./pages/dashboard/rapport/Rapport";
@@ -14,24 +15,27 @@ export const router = createBrowserRouter([
     element: <Dashboard />,
     children: [
       {
-        path: RoutNames.ACCUEIL,
+        path: RouteNames.ACCUEIL,
         element: <Home />,
       },
       {
-        path: RoutNames.PATIENT,
-        element: <Patients />
+        path: RouteNames.PATIENT,
+        element: <Patients />,
+        children: [
+          { path: RouteNames.PATIENT_DETAILS, element: <PatientDetails /> },
+        ],
       },
       {
-        path: RoutNames.EXAMENS,
-        element: <Examens />
+        path: RouteNames.EXAMENS,
+        element: <Examens />,
       },
       {
-        path: RoutNames.PERSONNEL,
-        element: <Personnel />
+        path: RouteNames.PERSONNEL,
+        element: <Personnel />,
       },
       {
-        path: RoutNames.RAPPORT,
-        element: <Rapport />
+        path: RouteNames.RAPPORT,
+        element: <Rapport />,
       },
     ],
   },
