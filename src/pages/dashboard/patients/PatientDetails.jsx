@@ -15,14 +15,14 @@ const PatientDetails = ({ patient }) => {
             <h2 className="name">{patient.name}</h2>
             <div className="data-plus">
               <div className="left">
-                <div>Genre: {patient.gender}</div>
-                <div>Phone: {patient.phone}</div>
-                <div>Addresse: {patient.address}</div>
+                <div>Genre: <strong>{patient.gender}</strong></div>
+                <div>Phone: <strong>{patient.phone}</strong></div>
+                <div>Addresse: <strong>{patient.address}</strong></div>
               </div>
               <div className="right">
-                <div>Age: {patient.age}</div>
-                <div>Poid: {patient.weight}</div>
-                <div>Clinicien demandeur: {patient.clinician}</div>
+                <div>Age: <strong>{patient.age} ans</strong></div>
+                <div>Poid: <strong>{patient.weight} Kg</strong></div>
+                <div>Clinicien demandeur: <strong>{patient.clinician}</strong></div>
               </div>
             </div>
           </div>

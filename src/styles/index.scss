@@ -2,7 +2,16 @@ $primary-color: #3abe8e;
 $secondary-color: #f19561;
 $text-color: #213547;
 $gray: #747474;
-$white: #ffffff;
+$white: #fff;
+
+$bg-dark: #242424;
+$bg-dark-secondary: #202020;
+$white-dark: rgba($white, 0.75);
+
+@import "app";
+@import "sidebar";
+@import "dashboard";
+@import "patients";
 
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
@@ -11,8 +20,8 @@ $white: #ffffff;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: $white;
+  background-color: $bg-dark;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -99,7 +108,34 @@ button:hover {
   }
 }
 
-@import "app";
-@import "sidebar";
-@import "dashboard";
-@import "patients";
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: $white-dark;
+    background-color: $bg-dark;
+  }
+  a:hover {
+    color: $primary-color;
+  }
+  button {
+    background-color: $bg-dark;
+  }
+  .patients-list
+  .patient-item
+  .name, 
+  .patient-details {
+    color: $white-dark;
+  }
+  .sidebar, 
+  .patients-list,
+  .section-content {
+    color: $white-dark;
+    background-color: $bg-dark;
+  }
+  .with-separator,
+  .sidebar-menu-item {
+    border-color: $bg-dark-secondary;
+  }
+  .dashboard-content-wrapper {
+    background-color: $bg-dark-secondary;
+  }
+}
