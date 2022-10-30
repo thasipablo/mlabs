@@ -6,9 +6,18 @@
 }
 
 .patients-list {
-  min-height: calc(100vh - 2rem);
+  height: calc(100vh - 2rem);
   background-color: $white;
   border-radius: 6px;
+  position: sticky;
+  top: 1rem;
+
+  .patient-list-content {
+    position: sticky;
+    top: 1rem;
+    height: calc(100% - 7.2rem);
+    overflow-y: scroll;
+  }
 
   .header,
   .actions {
@@ -19,6 +28,31 @@
 
   .header {
     padding: 1rem;
+  }
+
+  .search-filter {
+    display: flex;
+    padding: .5rem 1rem;
+    justify-content: space-between;
+    box-shadow: 0 .5rem .5rem rgba($gray, 0.0125);
+
+    .search {
+      display: flex;
+      border: 1px solid rgba($gray, 0.2);
+      border-radius: 4rem;
+      padding: 0 .5rem;
+      input {
+        color: $primary-color;
+        height: 2rem;
+        border: none;
+        outline: none;
+        background-color: transparent;
+      }
+      svg,
+      input::placeholder {
+        color: rgba($primary-color, 0.5);
+      }
+    }
   }
 
   button {
@@ -58,7 +92,7 @@
       svg {
         color: rgb($white, 0.7);
       }
-      
+
       .meta-data,
       .name {
         color: $primary-color;

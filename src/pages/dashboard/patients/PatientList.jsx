@@ -3,7 +3,7 @@ import PatientItem from "./PatientItem";
 
 const PatientList = ({ patients, onShowPatientDetails }) => {
   return (
-    <div className="">
+    <div className="patient-list-content">
       {patients.map((patient) => (
         <PatientItem
           patient={patient}

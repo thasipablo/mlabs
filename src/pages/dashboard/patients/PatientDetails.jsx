@@ -43,7 +43,7 @@ const PatientDetails = ({ patient }) => {
               </div>
             )) :
             <div className="section-content">
-              <h3 className="no-data">Pas d'examen  jusque là !</h3>
+              <h3 className="no-data">Ce bulletin d'analyse est vide !</h3>
             </div>
             }
           </div>
