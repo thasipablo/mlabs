@@ -4,7 +4,7 @@ built with React Js
 
 ## Get the repo
 ```
-git clone git@github.com:thasipablo/m-labs.git
+git clone git@github.com:thasipablo/mlabs.git
 ```
 ```
 cd m-labs
