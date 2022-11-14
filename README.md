@@ -7,7 +7,7 @@ built with React Js
 git clone git@github.com:thasipablo/mlabs.git
 ```
 ```
-cd m-labs
+cd mlabs
 ```
 ## Install dependencies
 ```
