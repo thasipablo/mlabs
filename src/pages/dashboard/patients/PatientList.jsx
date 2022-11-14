@@ -1,4 +1,6 @@
 import React from "react";
+import { useState } from "react";
+import Modal from "../../../components/UI/Modal";
 import PatientItem from "./PatientItem";
 
 const PatientList = ({ patients, onShowPatientDetails }) => {
