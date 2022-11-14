@@ -32,15 +32,15 @@
 
   .search-filter {
     display: flex;
-    padding: .5rem 1rem;
+    padding: 0.5rem 1rem;
     justify-content: space-between;
-    box-shadow: 0 .5rem .5rem rgba($gray, 0.0125);
+    box-shadow: 0 0.5rem 0.5rem rgba($gray, 0.0125);
 
     .search {
       display: flex;
       border: 1px solid rgba($gray, 0.2);
       border-radius: 4rem;
-      padding: 0 .5rem;
+      padding: 0 0.5rem;
       input {
         color: $primary-color;
         height: 2rem;
@@ -131,7 +131,7 @@
     .data-plus {
       display: grid;
       gap: 2rem;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr auto;
     }
 
     .avatar {

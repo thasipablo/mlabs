@@ -12,6 +12,7 @@ $white-dark: rgba($white, 0.75);
 @import "sidebar";
 @import "dashboard";
 @import "patients";
+@import "modal_box";
 
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
@@ -119,13 +120,11 @@ button:hover {
   button {
     background-color: $bg-dark;
   }
-  .patients-list
-  .patient-item
-  .name, 
+  .patients-list .patient-item .name,
   .patient-details {
     color: $white-dark;
   }
-  .sidebar, 
+  .sidebar,
   .patients-list,
   .section-content {
     color: $white-dark;
@@ -137,5 +136,8 @@ button:hover {
   }
   .dashboard-content-wrapper {
     background-color: $bg-dark-secondary;
+  }
+  .modal-backdrop {
+    background-color: rgba($white, 0.65);
   }
 }

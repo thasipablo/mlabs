@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
+import Modal from "../../../components/UI/Modal";
 import PatientDetails from "./PatientDetails";
 import PatientList from "./PatientList";
 
@@ -12,7 +13,7 @@ const patients = [
     gender: "Masculin",
     age: 43,
     weight: 67.7,
-    clinician : "Claudia",
+    clinician: "Claudia",
     analysisReports: [
       {
         id: 1,
@@ -24,8 +25,8 @@ const patients = [
             name: "Pigment bilaire",
             result: "Result 1",
             observations: "Observation 1",
-          }
-        ]
+          },
+        ],
       },
       {
         id: 2,
@@ -43,10 +44,10 @@ const patients = [
             name: "Pigment bilaire",
             result: "Result 1",
             observations: "Observation 1",
-          }
-        ]
-      }
-    ]
+          },
+        ],
+      },
+    ],
   },
   {
     id: 2,
@@ -56,27 +57,27 @@ const patients = [
     gender: "Masculin",
     age: 21,
     weight: 55.7,
-    clinician : "Claudia Warren",
+    clinician: "Claudia Warren",
     analysisReports: [
-      { 
+      {
         id: 1,
         patient: "Patient 2",
         date: "Thursday 2022-01-01",
-        exams: []
+        exams: [],
       },
-      { 
+      {
         id: 2,
         patient: "Patient 2",
         date: "Thursday 2022-01-01",
-        exams: []
+        exams: [],
       },
-      { 
+      {
         id: 3,
         patient: "Patient 2",
         date: "Thursday 2022-01-01",
-        exams: []
-      }
-    ]
+        exams: [],
+      },
+    ],
   },
   {
     id: 3,
@@ -86,128 +87,29 @@ const patients = [
     gender: "Féminin",
     age: 30,
     weight: 70,
-    clinician : "Monitar Gad",
-  },
-  {
-    id: 4,
-    name: "Margarita",
-    phone: "000 000 003",
-    address: "Vungili",
-    gender: "Féminin",
-    age: 30,
-    weight: 70,
-    clinician : "Monitar Gad",
-  },
-  {
-    id: 5,
-    name: "Margarita",
-    phone: "000 000 003",
-    address: "Vungili",
-    gender: "Féminin",
-    age: 30,
-    weight: 70,
-    clinician : "Monitar Gad",
-  },
-  {
-    id: 6,
-    name: "Margarita",
-    phone: "000 000 003",
-    address: "Vungili",
-    gender: "Féminin",
-    age: 30,
-    weight: 70,
-    clinician : "Monitar Gad",
-  },
-  {
-    id: 7,
-    name: "Margarita",
-    phone: "000 000 003",
-    address: "Vungili",
-    gender: "Féminin",
-    age: 30,
-    weight: 70,
-    clinician : "Monitar Gad",
-  },
-  {
-    id: 8,
-    name: "Margarita",
-    phone: "000 000 003",
-    address: "Vungili",
-    gender: "Féminin",
-    age: 30,
-    weight: 70,
-    clinician : "Monitar Gad",
-  },
-  {
-    id: 9,
-    name: "Margarita",
-    phone: "000 000 003",
-    address: "Vungili",
-    gender: "Féminin",
-    age: 30,
-    weight: 70,
-    clinician : "Monitar Gad",
-  },
-  {
-    id: 10,
-    name: "Margarita",
-    phone: "000 000 003",
-    address: "Vungili",
-    gender: "Féminin",
-    age: 30,
-    weight: 70,
-    clinician : "Monitar Gad",
-  },
-  {
-    id: 11,
-    name: "Margarita",
-    phone: "000 000 003",
-    address: "Vungili",
-    gender: "Féminin",
-    age: 30,
-    weight: 70,
-    clinician : "Monitar Gad",
-  },
-  {
-    id: 12,
-    name: "Margarita",
-    phone: "000 000 003",
-    address: "Vungili",
-    gender: "Féminin",
-    age: 30,
-    weight: 70,
-    clinician : "Monitar Gad",
-  },
-  {
-    id: 13,
-    name: "Margarita",
-    phone: "000 000 003",
-    address: "Vungili",
-    gender: "Féminin",
-    age: 30,
-    weight: 70,
-    clinician : "Monitar Gad",
-  },
-  {
-    id: 15,
-    name: "Margarita",
-    phone: "000 000 003",
-    address: "Vungili",
-    gender: "Féminin",
-    age: 30,
-    weight: 70,
-    clinician : "Monitar Gad",
+    clinician: "Monitar Gad",
   },
 ];
 
 const Patients = () => {
   const [patient, setPatient] = useState(patients[0]);
   const [filteredPatients, setFilteredPatients] = useState(patients);
+  const [showModal, setShowModal] = useState(false);
+
+  /**
+   * this toggles the new patient modal form
+   * @param {e} e event
+   */
+  const hideModal = (e) => {
+    if (e.target === e.currentTarget) {
+      setShowModal(!showModal);
+    }
+  };
 
   const onShowPatientDetails = (id) => {
     patients.map((patient) => {
       if (patient.id === id) {
-        setPatient(patient)
+        setPatient(patient);
       }
     });
   };
@@ -215,13 +117,15 @@ const Patients = () => {
   const onSearchPatients = (e) => {
     const searchTerm = e.target.value;
     const foundPatients = patients.filter((patient) => {
-      return patient.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
-            patient.phone.includes(searchTerm) || 
-            patient.address.toLowerCase().includes(searchTerm.toLowerCase()) || 
-            patient.gender.toLowerCase().includes(searchTerm.toLowerCase());
-    })
-    setFilteredPatients(foundPatients)
-  }
+      return (
+        patient.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        patient.phone.includes(searchTerm) ||
+        patient.address.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        patient.gender.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    });
+    setFilteredPatients(foundPatients);
+  };
 
   return (
     <div className="patients-container">
@@ -229,7 +133,7 @@ const Patients = () => {
         <div className="header with-separator">
           <div className="section-title">Patients</div>
           <div className="actions">
-            <button className="icon">
+            <button className="icon" onClick={() => setShowModal(!showModal)}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -248,19 +152,55 @@ const Patients = () => {
           </div>
         </div>
 
+        {/* add patient form modal */}
+        {showModal && (
+          <Modal hideModal={hideModal}>
+            <form action="">
+              <input type="text" placeholder="patient name" />
+            </form>
+          </Modal>
+        )}
+
         {/* Patients search and filters */}
         <div className="search-filter">
           <div className="search">
-            <label className="icon" htmlFor="search-field" >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+            <label className="icon" htmlFor="search-field">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                />
               </svg>
             </label>
-            <input type="text" onChange={onSearchPatients} id="search-field" placeholder="chercher un patient..." />
+            <input
+              type="text"
+              onChange={onSearchPatients}
+              id="search-field"
+              placeholder="Chercher un patient..."
+            />
           </div>
           <div className="icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M3 7.5L7.5 3m0 0L12 7.5M7.5 3v13.5m13.5 0L16.5 21m0 0L12 16.5m4.5 4.5V7.5" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3 7.5L7.5 3m0 0L12 7.5M7.5 3v13.5m13.5 0L16.5 21m0 0L12 16.5m4.5 4.5V7.5"
+              />
             </svg>
           </div>
         </div>
