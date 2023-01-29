@@ -1,6 +1,8 @@
+import { Button, Divider, FormControl, FormControlLabel, FormLabel, Modal, Radio, RadioGroup, TextField, Typography } from "@mui/material";
+import { Box } from "@mui/system";
 import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
-import Modal from "../../../components/UI/Modal";
+// import Modal from "../../../components/UI/Modal";
 import PatientDetails from "./PatientDetails";
 import PatientList from "./PatientList";
 
@@ -130,6 +132,7 @@ const Patients = () => {
   return (
     <div className="patients-container">
       <div className="patients-list">
+        {/* header [title and add patient buttons] */}
         <div className="header with-separator">
           <div className="section-title">Patients</div>
           <div className="actions">
@@ -154,10 +157,79 @@ const Patients = () => {
 
         {/* add patient form modal */}
         {showModal && (
-          <Modal hideModal={hideModal}>
-            <form action="">
-              <input type="text" placeholder="patient name" />
-            </form>
+          <Modal
+            open={open}
+            onClose={hideModal}
+            aria-labelledby="add patient form"
+            aria-describedby="this form is for adding a new patient to the database"
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Box width="30%" bgcolor="white" p={2} borderRadius="8px">
+              <Typography className="section-title" variant="div">Nouveau Patient</Typography>
+              <form>
+                <Box my={2}>
+                  <TextField
+                    fullWidth
+                    size="small"
+                    label="Nom complet du patient"
+                  />
+                </Box>
+                <Box my={2}>
+                  <TextField
+                    fullWidth
+                    size="small"
+                    label="Numéro de téléphone"
+                  />
+                </Box>
+                <Box my={2}>
+                  <TextField fullWidth size="small" label="Adresse" />
+                </Box>
+                <Box my={2}>
+                  <FormControl>
+                    <FormLabel id="demo-radio-buttons-group-label">
+                      Genre
+                    </FormLabel>
+                    <RadioGroup
+                      row
+                      aria-labelledby="demo-radio-buttons-group-label"
+                      defaultValue="female"
+                      name="radio-buttons-group"
+                    >
+                      <FormControlLabel
+                        value="female"
+                        control={<Radio />}
+                        label="Féminin"
+                      />
+                      <FormControlLabel
+                        value="male"
+                        control={<Radio />}
+                        label="Masculin"
+                      />
+                    </RadioGroup>
+                  </FormControl>
+                </Box>
+                <Box my={2}>
+                  <TextField fullWidth size="small" label="Age (année)" />
+                </Box>
+                <Box my={2}>
+                  <TextField fullWidth size="small" label="Poids (Kg)" />
+                </Box>
+                <Box my={2}>
+                  <TextField
+                    fullWidth
+                    size="small"
+                    label="Clinicien démandeur"
+                  />
+                </Box>
+                <Button variant="contained" type="submit">
+                  Enregistrer
+                </Button>
+              </form>
+            </Box>
           </Modal>
         )}
 
