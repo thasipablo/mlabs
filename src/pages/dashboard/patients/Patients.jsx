@@ -1,3 +1,4 @@
+import { Save } from "@mui/icons-material";
 import { Button, Divider, FormControl, FormControlLabel, FormLabel, Modal, Radio, RadioGroup, TextField, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useState } from "react";
@@ -225,7 +226,7 @@ const Patients = () => {
                     label="Clinicien démandeur"
                   />
                 </Box>
-                <Button variant="contained" type="submit">
+                <Button variant="contained" startIcon={<Save />} type="submit">
                   Enregistrer
                 </Button>
               </form>

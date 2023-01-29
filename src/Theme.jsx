@@ -1,20 +1,12 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme } from "@mui/material/styles";
 
 export const theme = createTheme({
   palette: {
     primary: {
-      main: '#ff4400',
+      main: "#3abe8e",
     },
     secondary: {
-      light: '#0066ff',
-      main: '#0044ff',
-      contrastText: '#ffcc00',
-    },
-    custom: {
-      light: '#ffa726',
-      main: '#f57c00',
-      dark: '#ef6c00',
-      contrastText: 'rgba(0, 0, 0, 0.87)',
+      main: "#f19561",
     },
     contrastThreshold: 3,
     tonalOffset: 0.2,
