@@ -17,7 +17,7 @@ const PatientItem = ({patient, onShowPatientDetails}) => {
       <div className="meta-data">
         <div className="name">{patient.name}</div>
         <div className="address">
-          {patient.address} , {patient.phone}
+          {patient.address} | {patient.phone}
         </div>
       </div>
     </NavLink>
