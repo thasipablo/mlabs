@@ -212,10 +212,11 @@ const Patients = () => {
                 <Box my={2}>
                   <TextField
                     fullWidth
-                    required
                     size="small"
                     label="Nom complet du patient"
                     {...register("name")}
+                    error={errors.name ? true : false}
+                    helperText={errors.name?.message}
                   />
                 </Box>
                 <Box my={2}>
@@ -224,6 +225,8 @@ const Patients = () => {
                     size="small"
                     label="Numéro de téléphone"
                     {...register("phone")}
+                    error={errors.phone ? true : false}
+                    helperText={errors.phone?.message}
                   />
                 </Box>
                 <Box my={2}>
@@ -232,6 +235,8 @@ const Patients = () => {
                     size="small"
                     label="Adresse"
                     {...register("address")}
+                    error={errors.address ? true : false}
+                    helperText={errors.address?.message}
                   />
                 </Box>
                 <Box my={2}>
@@ -265,7 +270,10 @@ const Patients = () => {
                     fullWidth
                     size="small"
                     label="Age (année)"
+                    type="number"
                     {...register("year")}
+                    error={errors.year ? true : false}
+                    helperText={errors.year?.message}
                   />
                 </Box>
                 <Box my={2}>
@@ -276,6 +284,8 @@ const Patients = () => {
                     label="Poids (Kg)"
                     InputProps={{startAdornment: <InputAdornment position="start">Kg</InputAdornment>}}
                     {...register("weight")}
+                    error={errors.weight ? true : false}
+                    helperText={errors.weight?.message}
                   />
                 </Box>
                 <Box my={2}>
@@ -284,6 +294,8 @@ const Patients = () => {
                     size="small"
                     label="Clinicien démandeur"
                     {...register("clinician")}
+                    error={errors.clinician ? true : false}
+                    helperText={errors.clinician?.message}
                   />
                 </Box>
                 <Button variant="contained" startIcon={<Save />} type="submit">
