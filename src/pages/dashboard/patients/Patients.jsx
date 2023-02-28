@@ -163,6 +163,8 @@ const Patients = () => {
 
   const onSubmit = (data) => {
     console.log(data);
+    // if data is valid
+    setShowModal(!showModal);
   };
 
   return (
