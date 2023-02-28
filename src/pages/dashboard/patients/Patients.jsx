@@ -16,9 +16,12 @@ import { Box } from "@mui/system";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Outlet } from "react-router-dom";
+import { yupResolver } from "@hookform/resolvers/yup"
+import { patientSchema } from "../../../validators/PatientSchema";
 // import Modal from "../../../components/UI/Modal";
 import PatientDetails from "./PatientDetails";
 import PatientList from "./PatientList";
+// import { patientSchema } from "../../../validators";
 
 const patients = [
   {
@@ -116,7 +119,7 @@ const Patients = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({resolver: yupResolver(patientSchema)});
 
   /**
    * this toggles the new patient modal form
@@ -209,6 +212,7 @@ const Patients = () => {
                 <Box my={2}>
                   <TextField
                     fullWidth
+                    required
                     size="small"
                     label="Nom complet du patient"
                     {...register("name")}
