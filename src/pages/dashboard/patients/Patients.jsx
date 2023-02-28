@@ -1,7 +1,19 @@
 import { Save } from "@mui/icons-material";
-import { Button, Divider, FormControl, FormControlLabel, FormLabel, Modal, Radio, RadioGroup, TextField, Typography } from "@mui/material";
+import {
+  Button,
+  Divider,
+  FormControl,
+  FormControlLabel,
+  FormLabel,
+  Modal,
+  Radio,
+  RadioGroup,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 import { Outlet } from "react-router-dom";
 // import Modal from "../../../components/UI/Modal";
 import PatientDetails from "./PatientDetails";
@@ -99,6 +111,8 @@ const Patients = () => {
   const [filteredPatients, setFilteredPatients] = useState(patients);
   const [showModal, setShowModal] = useState(false);
 
+  const {register, handleSubmit, formState: {errors}} = useForm()
+
   /**
    * this toggles the new patient modal form
    * @param {e} e event
@@ -109,6 +123,10 @@ const Patients = () => {
     }
   };
 
+  /**
+   * show patient data
+   * @param {id} patient id 
+   */
   const onShowPatientDetails = (id) => {
     patients.map((patient) => {
       if (patient.id === id) {
@@ -117,6 +135,11 @@ const Patients = () => {
     });
   };
 
+  /**
+   * find any patient
+   * this method filters patients present in the local list
+   * @param {e} e event
+   */
   const onSearchPatients = (e) => {
     const searchTerm = e.target.value;
     const foundPatients = patients.filter((patient) => {
@@ -129,6 +152,10 @@ const Patients = () => {
     });
     setFilteredPatients(foundPatients);
   };
+
+  const onSubmit = (data) => {
+    console.log(data);
+  }
 
   return (
     <div className="patients-container">
@@ -170,13 +197,16 @@ const Patients = () => {
             }}
           >
             <Box width="30%" bgcolor="white" p={2} borderRadius="8px">
-              <Typography className="section-title" variant="div">Nouveau Patient</Typography>
-              <form>
+              <Typography className="section-title" variant="div">
+                Nouveau Patient
+              </Typography>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <Box my={2}>
                   <TextField
                     fullWidth
                     size="small"
                     label="Nom complet du patient"
+                    {...register('name')}
                   />
                 </Box>
                 <Box my={2}>
@@ -184,10 +214,11 @@ const Patients = () => {
                     fullWidth
                     size="small"
                     label="Numéro de téléphone"
+                    {...register('phone')}
                   />
                 </Box>
                 <Box my={2}>
-                  <TextField fullWidth size="small" label="Adresse" />
+                  <TextField fullWidth size="small" label="Adresse" {...register('address')} />
                 </Box>
                 <Box my={2}>
                   <FormControl>
@@ -204,26 +235,29 @@ const Patients = () => {
                         value="female"
                         control={<Radio />}
                         label="Féminin"
+                        {...register('gender')}
                       />
                       <FormControlLabel
                         value="male"
                         control={<Radio />}
                         label="Masculin"
+                        {...register('gender')}
                       />
                     </RadioGroup>
                   </FormControl>
                 </Box>
                 <Box my={2}>
-                  <TextField fullWidth size="small" label="Age (année)" />
+                  <TextField fullWidth size="small" label="Age (année)" {...register('year')} />
                 </Box>
                 <Box my={2}>
-                  <TextField fullWidth size="small" label="Poids (Kg)" />
+                  <TextField fullWidth size="small" label="Poids (Kg)" {...register('weight')} />
                 </Box>
                 <Box my={2}>
                   <TextField
                     fullWidth
                     size="small"
                     label="Clinicien démandeur"
+                    {...register('clinician')}
                   />
                 </Box>
                 <Button variant="contained" startIcon={<Save />} type="submit">
