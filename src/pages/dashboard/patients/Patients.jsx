@@ -5,6 +5,7 @@ import {
   FormControl,
   FormControlLabel,
   FormLabel,
+  InputAdornment,
   Modal,
   Radio,
   RadioGroup,
@@ -111,7 +112,11 @@ const Patients = () => {
   const [filteredPatients, setFilteredPatients] = useState(patients);
   const [showModal, setShowModal] = useState(false);
 
-  const {register, handleSubmit, formState: {errors}} = useForm()
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   /**
    * this toggles the new patient modal form
@@ -125,7 +130,7 @@ const Patients = () => {
 
   /**
    * show patient data
-   * @param {id} patient id 
+   * @param {id} patient id
    */
   const onShowPatientDetails = (id) => {
     patients.map((patient) => {
@@ -155,7 +160,7 @@ const Patients = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-  }
+  };
 
   return (
     <div className="patients-container">
@@ -206,7 +211,7 @@ const Patients = () => {
                     fullWidth
                     size="small"
                     label="Nom complet du patient"
-                    {...register('name')}
+                    {...register("name")}
                   />
                 </Box>
                 <Box my={2}>
@@ -214,11 +219,16 @@ const Patients = () => {
                     fullWidth
                     size="small"
                     label="Numéro de téléphone"
-                    {...register('phone')}
+                    {...register("phone")}
                   />
                 </Box>
                 <Box my={2}>
-                  <TextField fullWidth size="small" label="Adresse" {...register('address')} />
+                  <TextField
+                    fullWidth
+                    size="small"
+                    label="Adresse"
+                    {...register("address")}
+                  />
                 </Box>
                 <Box my={2}>
                   <FormControl>
@@ -235,29 +245,41 @@ const Patients = () => {
                         value="female"
                         control={<Radio />}
                         label="Féminin"
-                        {...register('gender')}
+                        {...register("gender")}
                       />
                       <FormControlLabel
                         value="male"
                         control={<Radio />}
                         label="Masculin"
-                        {...register('gender')}
+                        {...register("gender")}
                       />
                     </RadioGroup>
                   </FormControl>
                 </Box>
                 <Box my={2}>
-                  <TextField fullWidth size="small" label="Age (année)" {...register('year')} />
+                  <TextField
+                    fullWidth
+                    size="small"
+                    label="Age (année)"
+                    {...register("year")}
+                  />
                 </Box>
                 <Box my={2}>
-                  <TextField fullWidth size="small" label="Poids (Kg)" {...register('weight')} />
+                  <TextField
+                    type="number"
+                    fullWidth
+                    size="small"
+                    label="Poids (Kg)"
+                    InputProps={{startAdornment: <InputAdornment position="start">Kg</InputAdornment>}}
+                    {...register("weight")}
+                  />
                 </Box>
                 <Box my={2}>
                   <TextField
                     fullWidth
                     size="small"
                     label="Clinicien démandeur"
-                    {...register('clinician')}
+                    {...register("clinician")}
                   />
                 </Box>
                 <Button variant="contained" startIcon={<Save />} type="submit">
