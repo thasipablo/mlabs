@@ -1,4 +1,4 @@
-import { Save } from "@mui/icons-material";
+import { RouterSharp, Save } from "@mui/icons-material";
 import {
   Button,
   Divider,
@@ -15,15 +15,16 @@ import {
 import { Box } from "@mui/system";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Outlet } from "react-router-dom";
-import { yupResolver } from "@hookform/resolvers/yup"
+import { Outlet, useNavigate } from "react-router-dom";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { patientSchema } from "../../../validators/PatientSchema";
 // import Modal from "../../../components/UI/Modal";
 import PatientDetails from "./PatientDetails";
 import PatientList from "./PatientList";
+import { RouteNames } from "../../../data/RouteNames";
 // import { patientSchema } from "../../../validators";
 
-const patients = [
+let patients = [
   {
     id: 1,
     name: "Bedriften",
@@ -111,6 +112,7 @@ const patients = [
 ];
 
 const Patients = () => {
+  const navigate = useNavigate()
   const [patient, setPatient] = useState(patients[0]);
   const [filteredPatients, setFilteredPatients] = useState(patients);
   const [showModal, setShowModal] = useState(false);
@@ -119,7 +121,7 @@ const Patients = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({resolver: yupResolver(patientSchema)});
+  } = useForm({ resolver: yupResolver(patientSchema) });
 
   /**
    * this toggles the new patient modal form
@@ -162,8 +164,12 @@ const Patients = () => {
   };
 
   const onSubmit = (data) => {
-    console.log(data);
-    // if data is valid
+    const patient = { ...data, id: patients.length + 1 };
+    console.log(patient);
+    patients = [patient, ...patients];
+    // display the new patient details
+    navigate(`${RouteNames.PATIENT}/${patient.id}`)
+    // hide modal
     setShowModal(!showModal);
   };
 
@@ -284,7 +290,11 @@ const Patients = () => {
                     fullWidth
                     size="small"
                     label="Poids (Kg)"
-                    InputProps={{startAdornment: <InputAdornment position="start">Kg</InputAdornment>}}
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start">Kg</InputAdornment>
+                      ),
+                    }}
                     {...register("weight")}
                     error={errors.weight ? true : false}
                     helperText={errors.weight?.message}
