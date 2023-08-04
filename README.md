@@ -21,7 +21,7 @@
 
 # 📖 Mlabs <a name="about-project"></a>
 
-**Mlabs** is a simple React js project for learning purposes.
+**Mlabs** is a medical laboratory activities management app that allows users to do a follow-up of consultation activities and human resources. Built with React JS and Material UI.
 
 ## 🛠 Built With <a name="built-with"></a>
 
